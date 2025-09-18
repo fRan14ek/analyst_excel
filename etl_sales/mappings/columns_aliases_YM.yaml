@@ -1,0 +1,9 @@
+articul_product:
+  - sku
+  - product_sku
+ordered:
+  - quantity
+ordered_for_the_amount:
+  - revenue
+articul_store:
+  - store_sku

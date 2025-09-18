@@ -1,0 +1,11 @@
+articul_product:
+  - Арт
+  - Артикул WB
+ordered:
+  - qty
+  - Количество
+ordered_for_the_amount:
+  - GMV
+  - Валовая выручка
+articul_store:
+  - Артикул поставщика
