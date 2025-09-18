@@ -349,8 +349,17 @@ def process_workbook(workbook_path: Path, output_dir: Path | None = None) -> Pat
 
 
 def _parse_arguments(argv: Sequence[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Extract Excel data into SQLite databases and JSON metadata.")
-    parser.add_argument("workbook", type=Path, help="Path to the Excel workbook (.xlsx) to process.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Extract Excel data into SQLite databases and JSON metadata. "
+            "By default the workbook is looked up in the 'base' directory, but explicit paths are accepted."
+        )
+    )
+    parser.add_argument(
+        "workbook",
+        type=Path,
+        help="Excel workbook (.xlsx) located in 'base' or provided via an explicit relative/absolute path.",
+    )
     parser.add_argument(
         "--output-dir",
         type=Path,
