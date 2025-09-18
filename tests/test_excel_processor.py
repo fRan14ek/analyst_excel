@@ -343,5 +343,5 @@ class ExcelProcessorTests(unittest.TestCase):
         self.assertEqual(rows, [("A", "Первый", 10.5), ("B", "", None)])
 
 
-if __name__ == "__main__":  # pragma: no cover - удобство для локального запуска
+if __name__ == "__main__":
     unittest.main()
