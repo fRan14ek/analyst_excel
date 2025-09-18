@@ -1,0 +1,13 @@
+articul_product:
+  - Артикул товара
+  - Артикул
+  - SKU
+articul_store:
+  - Артикул магазина
+ordered:
+  - Количество заказов
+  - Заказы
+  - Продажи
+ordered_for_the_amount:
+  - Сумма продаж
+  - Выручка

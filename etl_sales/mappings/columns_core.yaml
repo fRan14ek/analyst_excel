@@ -1,0 +1,20 @@
+id_key:
+  dtype: int64
+articul_product:
+  dtype: string
+articul_store:
+  dtype: string
+playground:
+  dtype: category
+ordered:
+  dtype: int64
+ordered_for_the_amount:
+  dtype: float64
+report_period_start:
+  dtype: datetime64[ns]
+report_period_end:
+  dtype: datetime64[ns]
+report_week:
+  dtype: string
+file_source:
+  dtype: string

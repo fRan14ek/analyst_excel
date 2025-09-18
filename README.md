@@ -1,27 +1,39 @@
-# analyst_excel
+# ETL Sales Processor
 
-## Использование
+Этот проект предоставляет CLI-утилиту для агрегации еженедельных Excel/CSV отчётов
+по площадкам Ozon, Wildberries и Яндекс.Маркет в единую базу данных Excel и сводный
+отчёт.
 
-Скрипт `excel_processor.py` принимает путь к Excel-файлу (`.xlsx`) и создаёт для
-каждого листа отдельную базу данных SQLite и файл JSON со словарём, описывающим
-структуру книги. При запуске скрипт сначала ищет книгу в каталоге `base`, но вы
-можете передать относительный или абсолютный путь к файлу.
+## Структура проекта
 
-Примеры запуска:
-
-```bash
-# файл помещён в каталог base
-python excel_processor.py sample.xlsx
-
-# файл расположен произвольно
-python excel_processor.py путь/к/файлу.xlsx
+```
+etl_sales/
+  config.yaml
+  mappings/
+  data/
+  etl/
+  tests/
 ```
 
-По умолчанию результаты сохраняются в каталоге `output` рядом с исходным
-файлом. Путь к каталогу можно задать явно с помощью аргумента `--output-dir`.
+Основной код находится в пакете `etl_sales/etl`. Команда CLI регистрирована в
+модуле `etl_sales/etl/cli.py` и запускается через `python -m etl_sales.etl.cli`.
+
+## Пример запуска
+
+```bash
+python -m etl_sales.etl.cli load-week \
+  --start 2025-09-08 \
+  --end 2025-09-14 \
+  --base etl_sales/data/base.xlsx \
+  --week 202536 \
+  --save-to etl_sales/data/output/
+```
+
+Поддерживаются флаги `--dry-run`, `--fail-on-invalid-articul`, `--no-export-parquet`
+и `--platform`.
 
 ## Тестирование
 
 ```bash
-python -m unittest discover
+pytest
 ```
